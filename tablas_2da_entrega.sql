@@ -5,7 +5,7 @@ DROP TABLE Departamento CASCADE CONSTRAINTS;
 DROP TABLE Descuento CASCADE CONSTRAINTS;
 DROP TABLE DescuentosAplicados CASCADE CONSTRAINTS;
 DROP TABLE EstadoEliminacion CASCADE CONSTRAINTS;
-DROP TABLE Factura CASCADE CONSTRAINTS;
+--DROP TABLE Factura CASCADE CONSTRAINTS;
 DROP TABLE Foto CASCADE CONSTRAINTS;
 DROP TABLE Fotografo CASCADE CONSTRAINTS;
 DROP TABLE FotosPorCompra CASCADE CONSTRAINTS;
@@ -151,17 +151,6 @@ CREATE TABLE Tarjeta (
   TiposDeTarjetaID       number(10), 
   PRIMARY KEY (NumerodeTarjeta, 
   NombreUsuarioComprador));
-CREATE TABLE Factura (
-  ID                           number(10) NOT NULL, 
-  Total                        float(10), 
-  Direccion                    varchar2(255), 
-  Comision                     float(10), 
-  Fecha                        date NOT NULL, 
-  CompraID                     number(10) NOT NULL, 
-  CompraNombreUsuarioComprador varchar2(255) NOT NULL, 
-  PRIMARY KEY (ID, 
-  CompraID, 
-  CompraNombreUsuarioComprador));
 CREATE TABLE TipoDePago (
   Nombre varchar2(255) NOT NULL, 
   ID     number(10) GENERATED AS IDENTITY, 
@@ -173,41 +162,38 @@ CREATE TABLE TiposDeTarjeta (
 CREATE TABLE Impuesto (
   ID           number(10) GENERATED AS IDENTITY, 
   TipoImpuesto varchar2(255) NOT NULL, 
-  Cantidad     number(10), 
+  Porcentaje     number(10), 
   PRIMARY KEY (ID));
 CREATE TABLE Descuento (
   ID            number(10) GENERATED AS IDENTITY, 
-  TipoDescuento number(10) NOT NULL, 
+  TipoDescuento number(10) NOT NULL,
+  Porcentaje number(10) NULL, 
   PRIMARY KEY (ID));
 CREATE TABLE PagoPorCompra (
-  TipoDePagoID                         number(10) NOT NULL, 
-  FacturaID                            number(10) NOT NULL, 
-  FacturaCompraID2                     number(10) NOT NULL, 
-  FacturaCompraNombreUsuarioComprador2 varchar2(255) NOT NULL, 
-  PRIMARY KEY (TipoDePagoID, 
-  FacturaID, 
-  FacturaCompraID2, 
-  FacturaCompraNombreUsuarioComprador2));
+  TipoDePagoID                         number(10) NOT NULL,  
+  CompraID                     number(10) NOT NULL, 
+  CompraNombreUsuarioComprador varchar2(255) NOT NULL, 
+  PRIMARY KEY (TipoDePagoID,  
+  CompraID, 
+  CompraNombreUsuarioComprador));
 CREATE TABLE ImpuestosAplicados (
-  FacturaID                            number(10) NOT NULL, 
   ImpuestoID                           number(10) NOT NULL, 
-  FacturaCompraID                      number(10) NOT NULL, 
-  FacturaCompraNombreUsuarioComprador2 varchar2(255) NOT NULL, 
+  CompraID                      number(10) NOT NULL, 
+  CompraNombreUsuarioComprador varchar2(255) NOT NULL, 
   Impuestos                            number(10), 
-  PRIMARY KEY (FacturaID, 
+  PRIMARY KEY (
   ImpuestoID, 
-  FacturaCompraID, 
-  FacturaCompraNombreUsuarioComprador2));
+  CompraID, 
+  CompraNombreUsuarioComprador));
 CREATE TABLE DescuentosAplicados (
   Descuentos                           number(10), 
-  FacturaID                            number(10) NOT NULL, 
   DescuentoID                          number(10) NOT NULL, 
-  FacturaCompraID2                     number(10) NOT NULL, 
-  FacturaCompraNombreUsuarioComprador2 varchar2(255) NOT NULL, 
-  PRIMARY KEY (FacturaID, 
+  CompraID                     number(10) NOT NULL, 
+  CompraNombreUsuarioComprador varchar2(255) NOT NULL, 
+  PRIMARY KEY ( 
   DescuentoID, 
-  FacturaCompraID2, 
-  FacturaCompraNombreUsuarioComprador2));
+  CompraID, 
+  CompraNombreUsuarioComprador));
 CREATE TABLE Periodo (
   Fechas date NOT NULL, 
   PRIMARY KEY (Fechas));
@@ -217,37 +203,37 @@ CREATE TABLE HistorialVisitas (
   PeriodoFechas          date NOT NULL, 
   PRIMARY KEY (NumerodeRegistro, 
   CompradorNombreUsuario));
-ALTER TABLE Ciudad ADD CONSTRAINT FKCiudad766665 FOREIGN KEY (DepartamentoCodigo, DepartamentoPaisCodigo) REFERENCES Departamento (Codigo, PaisCodigo);
 ALTER TABLE Departamento ADD CONSTRAINT FKDepartamen363547 FOREIGN KEY (PaisCodigo) REFERENCES Pais (Codigo);
+ALTER TABLE Ciudad ADD CONSTRAINT FKCiudad766665 FOREIGN KEY (DepartamentoCodigo, DepartamentoPaisCodigo) REFERENCES Departamento (Codigo, PaisCodigo);
 ALTER TABLE Ubicacion ADD CONSTRAINT FKUbicacion472733 FOREIGN KEY (CiudadCodigo, CiudadDepartamentoCodigo, CiudadDepartamentoPaisCodigo) REFERENCES Ciudad (Codigo, DepartamentoCodigo, DepartamentoPaisCodigo);
+ALTER TABLE Fotografo ADD CONSTRAINT FKFotografo173846 FOREIGN KEY (UsuarioNombreUsuario) REFERENCES Usuario (NombreUsuario);
+ALTER TABLE Fotografo ADD CONSTRAINT FKFotografo191828 FOREIGN KEY (TiposExperienciaID) REFERENCES TiposExperiencia (ID);
 ALTER TABLE Foto ADD CONSTRAINT FKFoto985865 FOREIGN KEY (UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo) REFERENCES Ubicacion (CiudadCodigo, CiudadDepartamentoCodigo, CiudadDepartamentoPaisCodigo);
-ALTER TABLE Foto ADD CONSTRAINT FKFoto686489 FOREIGN KEY (EstadoEliminacionID) REFERENCES EstadoEliminacion (ID);
-ALTER TABLE Foto ADD CONSTRAINT FKFoto330125 FOREIGN KEY (TiposdeSujetoID) REFERENCES TiposdeSujeto (ID);
-ALTER TABLE Foto ADD CONSTRAINT FKFoto197005 FOREIGN KEY (TiposTemaID) REFERENCES TiposTema (ID);
+ALTER TABLE Foto ADD CONSTRAINT FKFoto34441 FOREIGN KEY (FotografoUsuarioNombreUsuario) REFERENCES Fotografo (UsuarioNombreUsuario);
 ALTER TABLE Foto ADD CONSTRAINT FKFoto688381 FOREIGN KEY (ResolucionID) REFERENCES Resolucion (ID);
 ALTER TABLE Foto ADD CONSTRAINT FKFoto204526 FOREIGN KEY (TipoTamanoID) REFERENCES TipoTamano (ID);
+ALTER TABLE Foto ADD CONSTRAINT FKFoto197005 FOREIGN KEY (TiposTemaID) REFERENCES TiposTema (ID);
+ALTER TABLE Foto ADD CONSTRAINT FKFoto330125 FOREIGN KEY (TiposdeSujetoID) REFERENCES TiposdeSujeto (ID);
+ALTER TABLE Foto ADD CONSTRAINT FKFoto686489 FOREIGN KEY (EstadoEliminacionID) REFERENCES EstadoEliminacion (ID);
 ALTER TABLE HostedFoto ADD CONSTRAINT FKHostedFoto990301 FOREIGN KEY (SitioDescargaURL) REFERENCES SitioDescarga (URL);
-ALTER TABLE Fotografo ADD CONSTRAINT FKFotografo191828 FOREIGN KEY (TiposExperienciaID) REFERENCES TiposExperiencia (ID);
-ALTER TABLE Foto ADD CONSTRAINT FKFoto34441 FOREIGN KEY (FotografoUsuarioNombreUsuario) REFERENCES Fotografo (UsuarioNombreUsuario);
-ALTER TABLE Compra ADD CONSTRAINT Comprador FOREIGN KEY (NombreUsuarioComprador) REFERENCES Comprador (NombreUsuario);
-ALTER TABLE Tarjeta ADD CONSTRAINT Usa FOREIGN KEY (NombreUsuarioComprador) REFERENCES Comprador (NombreUsuario);
-ALTER TABLE Tarjeta ADD CONSTRAINT FKTarjeta236765 FOREIGN KEY (TiposDeTarjetaID) REFERENCES TiposDeTarjeta (ID);
-ALTER TABLE PagoPorCompra ADD CONSTRAINT FKPagoPorCom198702 FOREIGN KEY (FacturaID, FacturaCompraID2, FacturaCompraNombreUsuarioComprador2) REFERENCES Factura (ID, CompraID, CompraNombreUsuarioComprador);
-ALTER TABLE ImpuestosAplicados ADD CONSTRAINT FKImpuestosA776563 FOREIGN KEY (FacturaID, FacturaCompraID, FacturaCompraNombreUsuarioComprador2) REFERENCES Factura (ID, CompraID, CompraNombreUsuarioComprador);
-ALTER TABLE DescuentosAplicados ADD CONSTRAINT FKDescuentos859139 FOREIGN KEY (FacturaID, FacturaCompraID2, FacturaCompraNombreUsuarioComprador2) REFERENCES Factura (ID, CompraID, CompraNombreUsuarioComprador);
-ALTER TABLE PagoPorCompra ADD CONSTRAINT FKPagoPorCom68629 FOREIGN KEY (TipoDePagoID) REFERENCES TipoDePago (ID);
-ALTER TABLE ImpuestosAplicados ADD CONSTRAINT FKImpuestosA165446 FOREIGN KEY (ImpuestoID) REFERENCES Impuesto (ID);
-ALTER TABLE DescuentosAplicados ADD CONSTRAINT FKDescuentos714921 FOREIGN KEY (DescuentoID) REFERENCES Descuento (ID);
-ALTER TABLE Comprador ADD CONSTRAINT FKComprador564135 FOREIGN KEY (NombreUsuario) REFERENCES Usuario (NombreUsuario);
-ALTER TABLE Fotografo ADD CONSTRAINT FKFotografo173846 FOREIGN KEY (UsuarioNombreUsuario) REFERENCES Usuario (NombreUsuario);
-ALTER TABLE Compra ADD CONSTRAINT FKCompra267871 FOREIGN KEY (PeriodoFechas) REFERENCES Periodo (Fechas);
-ALTER TABLE HistorialVisitas ADD CONSTRAINT FKHistorialV284966 FOREIGN KEY (CompradorNombreUsuario) REFERENCES Comprador (NombreUsuario);
 ALTER TABLE HostedFoto ADD CONSTRAINT FKHostedFoto677200 FOREIGN KEY (FotoID) REFERENCES Foto (ID);
+ALTER TABLE Compra ADD CONSTRAINT FKCompra223087 FOREIGN KEY (NombreUsuarioComprador) REFERENCES Comprador (NombreUsuario);
+ALTER TABLE Comprador ADD CONSTRAINT FKComprador564135 FOREIGN KEY (NombreUsuario) REFERENCES Usuario (NombreUsuario);
+ALTER TABLE Compra ADD CONSTRAINT FKCompra267871 FOREIGN KEY (PeriodoFechas) REFERENCES Periodo (Fechas);
 ALTER TABLE FotosPorCompra ADD CONSTRAINT FKFotosPorCo184215 FOREIGN KEY (CompraID, NombreUsuarioComprador) REFERENCES Compra (ID, NombreUsuarioComprador);
 ALTER TABLE FotosPorCompra ADD CONSTRAINT FKFotosPorCo465929 FOREIGN KEY (FotoID) REFERENCES Foto (ID);
-ALTER TABLE Factura ADD CONSTRAINT FKFactura82706 FOREIGN KEY (CompraID, CompraNombreUsuarioComprador) REFERENCES Compra (ID, NombreUsuarioComprador);
+ALTER TABLE Tarjeta ADD CONSTRAINT FKTarjeta664276 FOREIGN KEY (NombreUsuarioComprador) REFERENCES Comprador (NombreUsuario);
+ALTER TABLE Tarjeta ADD CONSTRAINT FKTarjeta236765 FOREIGN KEY (TiposDeTarjetaID) REFERENCES TiposDeTarjeta (ID);
+ALTER TABLE PagoPorCompra ADD CONSTRAINT FKPagoPorCom68629 FOREIGN KEY (TipoDePagoID) REFERENCES TipoDePago (ID);
+ALTER TABLE PagoPorCompra ADD CONSTRAINT FKPagoPorCom640282 FOREIGN KEY (CompraID, CompraNombreUsuarioComprador) REFERENCES Compra (ID, NombreUsuarioComprador);
+ALTER TABLE ImpuestosAplicados ADD CONSTRAINT FKImpuestosA165446 FOREIGN KEY (ImpuestoID) REFERENCES Impuesto (ID);
+ALTER TABLE ImpuestosAplicados ADD CONSTRAINT FKImpuestosA598302 FOREIGN KEY (CompraID, CompraNombreUsuarioComprador) REFERENCES Compra (ID, NombreUsuarioComprador);
+ALTER TABLE DescuentosAplicados ADD CONSTRAINT FKDescuentos714921 FOREIGN KEY (DescuentoID) REFERENCES Descuento (ID);
+ALTER TABLE DescuentosAplicados ADD CONSTRAINT FKDescuentos417559 FOREIGN KEY (CompraID, CompraNombreUsuarioComprador) REFERENCES Compra (ID, NombreUsuarioComprador);
+ALTER TABLE HistorialVisitas ADD CONSTRAINT FKHistorialV284966 FOREIGN KEY (CompradorNombreUsuario) REFERENCES Comprador (NombreUsuario);
 ALTER TABLE HistorialVisitas ADD CONSTRAINT FKHistorialV548849 FOREIGN KEY (PeriodoFechas) REFERENCES Periodo (Fechas);
-ALTER TABLE Factura ADD CONSTRAINT FKFactura155167 FOREIGN KEY (Fecha) REFERENCES Periodo (Fechas);
+
+
 INSERT INTO Periodo(Fechas) VALUES (to_date('11/10/2021','DD/MM/YYYY'));
 INSERT INTO Periodo(Fechas) VALUES (to_date('12/10/2021','DD/MM/YYYY'));
 INSERT INTO Periodo(Fechas) VALUES (to_date('13/10/2021','DD/MM/YYYY'));
@@ -346,8 +332,6 @@ INSERT INTO TiposDeTarjeta(Tipo) VALUES ('American Express');
 INSERT INTO TiposDeTarjeta(Tipo) VALUES ('UnionPay');
 INSERT INTO TiposDeTarjeta(Tipo) VALUES ('Dinners');
 INSERT INTO TiposDeTarjeta(Tipo) VALUES ('Discover');
-INSERT INTO Factura(ID, Total, Direccion, Comision, Fecha, CompraID, CompraNombreUsuarioComprador) VALUES (1, null, '4572 Tree Frog Lane', null, to_date('11/10/2021','DD/MM/YYYY'), 1, 'OmunIaLS');
-INSERT INTO Factura(ID, Total, Direccion, Comision, Fecha, CompraID, CompraNombreUsuarioComprador) VALUES (2, null, '2928 Ford Street', null, to_date('11/10/2021','DD/MM/YYYY'), 2, 'HenaTeRg');
 INSERT INTO TipoDePago(Nombre) VALUES ('Tarjeta');
 INSERT INTO TipoDePago(Nombre) VALUES ('PayPal');
 INSERT INTO Tarjeta(NumerodeTarjeta, NombreTitular, MesVencimiento, AnoVencimiento, Correo, NombreUsuarioComprador, TiposDeTarjetaID) VALUES (4532433144323849, 'Keiran Watt ', 8, 23, 'Cands1953@rhyta.com', 'OmunIaLS', 1);
@@ -355,17 +339,26 @@ INSERT INTO Tarjeta(NumerodeTarjeta, NombreTitular, MesVencimiento, AnoVencimien
 INSERT INTO Tarjeta(NumerodeTarjeta, NombreTitular, MesVencimiento, AnoVencimiento, Correo, NombreUsuarioComprador, TiposDeTarjetaID) VALUES (349681756060692, 'Alexandra Laing ', 4, 25, 'Vored1978@einrot.com', 'fURiCIat', 3);
 INSERT INTO Tarjeta(NumerodeTarjeta, NombreTitular, MesVencimiento, AnoVencimiento, Correo, NombreUsuarioComprador, TiposDeTarjetaID) VALUES (349761961680052, 'Shania Mcgrath ', 6, 25, 'Bance1932@jourrapide.com', 'ApenHaNT', 3);
 INSERT INTO Tarjeta(NumerodeTarjeta, NombreTitular, MesVencimiento, AnoVencimiento, Correo, NombreUsuarioComprador, TiposDeTarjetaID) VALUES (5223698497793811, 'Mark Noguera', 4, 22, 'arnoguera@gmail.com', 'ApenHaNT', 2);
-INSERT INTO Impuesto(TipoImpuesto, Cantidad) VALUES ('ReteFuente', 7);
-INSERT INTO Impuesto(TipoImpuesto, Cantidad) VALUES ('IVA', 16);
-INSERT INTO Impuesto(TipoImpuesto, Cantidad) VALUES ('ICA', 6);
-INSERT INTO Descuento(TipoDescuento) VALUES (2);
-INSERT INTO Descuento(TipoDescuento) VALUES (4);
-INSERT INTO Descuento(TipoDescuento) VALUES (5);
-INSERT INTO PagoPorCompra(TipoDePagoID, FacturaID, FacturaCompraID2, FacturaCompraNombreUsuarioComprador2) VALUES (1, 1, 1, 'OmunIaLS');
-INSERT INTO ImpuestosAplicados(FacturaID, ImpuestoID, FacturaCompraID, FacturaCompraNombreUsuarioComprador2, Impuestos) VALUES (1, 1, 1, 'OmunIaLS', null);
-INSERT INTO ImpuestosAplicados(FacturaID, ImpuestoID, FacturaCompraID, FacturaCompraNombreUsuarioComprador2, Impuestos) VALUES (1, 2, 1, 'OmunIaLS', null);
-INSERT INTO ImpuestosAplicados(FacturaID, ImpuestoID, FacturaCompraID, FacturaCompraNombreUsuarioComprador2, Impuestos) VALUES (1, 3, 1, 'OmunIaLS', null);
-INSERT INTO DescuentosAplicados(Descuentos, FacturaID, DescuentoID, FacturaCompraID2, FacturaCompraNombreUsuarioComprador2) VALUES (null, 2, 2, 2, 'HenaTeRg');
+INSERT INTO Impuesto(TipoImpuesto, Porcentaje) VALUES ('ReteFuente', 7);
+INSERT INTO Impuesto(TipoImpuesto, Porcentaje) VALUES ('IVA', 16);
+INSERT INTO Impuesto(TipoImpuesto, Porcentaje) VALUES ('ICA', 6);
+INSERT INTO Descuento(TipoDescuento,Porcentaje) VALUES (2,2);
+INSERT INTO Descuento(TipoDescuento,Porcentaje) VALUES (4,4);
+INSERT INTO Descuento(TipoDescuento,Porcentaje) VALUES (5,5);
+
+INSERT INTO PagoPorCompra(TipoDePagoID, CompraID, CompraNombreUsuarioComprador) VALUES (1, 1, 'OmunIaLS');
+INSERT INTO PagoPorCompra(TipoDePagoID, CompraID, CompraNombreUsuarioComprador) VALUES (2, 2, 'HenaTeRg');
+INSERT INTO PagoPorCompra(TipoDePagoID, CompraID, CompraNombreUsuarioComprador) VALUES (2, 3, 'fURiCIat');
+
+
+INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (1, 1, 'OmunIaLS', null);
+INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (2, 2, 'HenaTeRg', null);
+INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (3, 3, 'fURiCIat', null);
+
+
+
+INSERT INTO DescuentosAplicados(Descuentos, DescuentoID, CompraID, CompraNombreUsuarioComprador) VALUES (null, 2, 2, 'HenaTeRg');
+
 INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (1, 'OmunIaLS', 1, 1, 1, null);
 INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (2, 'HenaTeRg', 2, 6, 4, null);
 INSERT INTO HistorialVisitas(NumerodeRegistro, CompradorNombreUsuario, PeriodoFechas) VALUES (1, 'OmunIaLS', to_date('11/10/2021','DD/MM/YYYY'));
