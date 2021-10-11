@@ -1,6 +1,3 @@
-/* Generado desde Visual Paradigm. 
-ATENCION: Elimina todas las tablas creadas previamente.*/
-
 DROP TABLE Ciudad CASCADE CONSTRAINTS;
 DROP TABLE Compra CASCADE CONSTRAINTS;
 DROP TABLE Comprador CASCADE CONSTRAINTS;
