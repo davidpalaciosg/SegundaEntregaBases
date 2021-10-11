@@ -370,14 +370,14 @@ INSERT INTO Fotografo(VentasPasadas, ComisionTotal, UsuarioNombreUsuario, TiposE
 INSERT INTO Fotografo(VentasPasadas, ComisionTotal, UsuarioNombreUsuario, TiposExperienciaID) VALUES (691000, 0, 'eberhardgross', 1);
 INSERT INTO Fotografo(VentasPasadas, ComisionTotal, UsuarioNombreUsuario, TiposExperienciaID) VALUES (12414, 214512, 'carnIth', 1);
 INSERT INTO Fotografo(VentasPasadas, ComisionTotal, UsuarioNombreUsuario, TiposExperienciaID) VALUES (1353, 135543, 'PTanisHF', 1);
-INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('\\Pictures\SISTEMAYONOSEQUE.jpg', 'Background', to_date('10/10/2020','DD/MM/YYYY'), 'Test', 10000, 13652, 25300, 1, 'SebastianVergara', 1, 1, 4, 1, 1);
-INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('womantshblack.jpg', 'Woman Wearing Green Crew-neck T-shirt and Black Denim Bottoms Making Face Behind Don&#39;t Trust Anybody Who Doesn&#39;t Have a Sense of Humor Quote on White Wall', to_date('12/09/2018','DD/MM/YYYY'), 'Imagen de una mujer con camiseta verde en frente de un poster que dice "No confies en aquellos que no tienen sentido del humor"', 0, 20953, 91048, 2, 'DariaShetzcova', 1, 1, 1, 2, 1);
+INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('SISTEMAYONOSEQUE.jpg', 'Background', to_date('10/10/2020','DD/MM/YYYY'), 'Test', 10000, 13652, 25300, 1, 'SebastianVergara', 1, 1, 4, 1, 1);
+INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('womantshblack.jpg', 'Woman Wearing Green Crew-neck T-shirt and Black Denim Bottoms Making Face Behind Don&#39;t Trust Anybody Who Doesn&#39;t Have a Sense of Humor Quote on White Wall', to_date('12/09/2018','DD/MM/YYYY'), 'Imagen de una mujer con camiseta verde en frente de un poster que dice "No confies en aquellos que no tienen sentido del humor"', 35130, 20953, 91048, 2, 'DariaShetzcova', 1, 1, 1, 2, 1);
 INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('youngshowingok.png', 'A young business woman is showing OK sign and holding a document folder, isolated background ', to_date('16/06/2021','DD/MM/YYYY'), 'Joven empresaria dando un OK con un folder.', 10239, 12412904, 2409124, 3, 'DariaShetzcova', 1, 3, 7, 3, 1);
-INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('two-men-in-military-clothing-with-guns-163490/', 'Two Men in Military Clothing With Guns ', to_date('16/09/2018','DD/MM/YYYY'), 'Dos hombres en ropa militar con armas. ', 121240, 43542, 91048, 2, 'Berendey_Ivanov', 1, 2, 9, 4, 1);
-INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('green-slope-in-forest-on-mist-day-4406626/', 'Green slope in forest on mist day ', to_date('15/05/2020','DD/MM/YYYY'), 'Montana verde en lluvia.', 64253, 43542, 91048, 2, 'eberhardgross', 2, 4, 3, 5, 1);
+INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('two-men-in-military-clothing-with-guns.jpg', 'Two Men in Military Clothing With Guns ', to_date('16/09/2018','DD/MM/YYYY'), 'Dos hombres en ropa militar con armas. ', 121240, 43542, 91048, 2, 'Berendey_Ivanov', 1, 2, 9, 4, 1);
+INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('green-slope-in-forest.jpg', 'Green slope in forest on mist day ', to_date('15/05/2020','DD/MM/YYYY'), 'Montana verde en lluvia.', 64253, 43542, 91048, 2, 'eberhardgross', 2, 4, 3, 5, 1);
 INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('woeinowing.jpg', 'Multipurpose Professional Certificate Template Design. Abstract Blue Vector illustration ', to_date('18/07/2019','DD/MM/YYYY'), 'Certificado Azul ', 50000, 23509, 543983, 4, 'SebastianVergara', 1, 2, 7, 2, 2);
-INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('vitebsk-belarus-famous-landmark-is-assumption-cath-5JMHN6H', 'Vitebsk, Belarus. Famous Landmark Is Assumption Cathedral Church ', to_date('17/06/2021','DD/MM/YYYY'), 'Un hito famoso es la Iglesia Catedral de la Asunción en upper Town en Uspensky Mount Hill durante la puesta de sol de invierno. Famoso Patrimonio Histórico. ', 145000, 23509, 543983, 4, 'carnIth', 2, 3, 3, 3, 1);
-INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('mount-agung-volcano-in-sunrise-M3ED2GX', 'Volcán del Monte Agung en la Amanecer ', to_date('15/07/2021','DD/MM/YYYY'), 'Volcán Agung al Amanecer, vista desde la Playa de Sanur en Bali Indonesia ', 230000, 309251, 13421343, 5, 'PTanisHF', 2, 2, 5, 3, 1);
+INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('vitebsk-belarus-famous-landmark.jpg', 'Vitebsk, Belarus. Famous Landmark Is Assumption Cathedral Church ', to_date('17/06/2021','DD/MM/YYYY'), 'Un hito famoso es la Iglesia Catedral de la Asunción en upper Town en Uspensky Mount Hill durante la puesta de sol de invierno. Famoso Patrimonio Histórico. ', 145000, 23509, 543983, 4, 'carnIth', 2, 3, 3, 3, 1);
+INSERT INTO Foto(NombreArchivo, Nombre, Fecha, Descripcion, Precio, UbicacionCiudadCodigo, UbicacionDepartamentoCodigo, UbicacionPaisCodigo, FotografoUsuarioNombreUsuario, ResolucionID, TipoTamanoID, TiposTemaID, TiposdeSujetoID, EstadoEliminacionID) VALUES ('mount-agung-volcano.jpg', 'Volcán del Monte Agung en la Amanecer ', to_date('15/07/2021','DD/MM/YYYY'), 'Volcán Agung al Amanecer, vista desde la Playa de Sanur en Bali Indonesia ', 230000, 309251, 13421343, 5, 'PTanisHF', 2, 2, 5, 3, 1);
 INSERT INTO HostedFoto(SitioDescargaURL, FotoID) VALUES ('https://drive.google.com/', 1);
 INSERT INTO HostedFoto(SitioDescargaURL, FotoID) VALUES ('https://xframe.io/photos/', 2);
 INSERT INTO HostedFoto(SitioDescargaURL, FotoID) VALUES ('https://www.pexels.com/photo/', 3);
@@ -389,6 +389,16 @@ INSERT INTO Comprador(MetodosPago, NombreUsuario) VALUES ('Tarjeta', 'ApenHaNT')
 INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (1, 'woman.jpg', null, 'OmunIaLS', to_date('11/10/2021','DD/MM/YYYY'));
 INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (2, 'tarjetamadres.jpg', null, 'HenaTeRg', to_date('11/10/2021','DD/MM/YYYY'));
 INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (3, 'hombreenfiguras.jpg', null, 'fURiCIat', to_date('12/10/2021','DD/MM/YYYY'));
+
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (4, 'hombreenfiguras.jpg', null, 'ApenHaNT', to_date('11/10/2021','DD/MM/YYYY'));
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (5, 'hombreenfiguras.jpg', null, 'HenaTeRg', to_date('12/10/2021','DD/MM/YYYY'));
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (6, 'hombreenfiguras.jpg', null, 'fURiCIat', to_date('13/10/2021','DD/MM/YYYY'));
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (7, 'hombreenfiguras.jpg', null, 'ApenHaNT', to_date('14/10/2021','DD/MM/YYYY'));
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (8, 'hombreenfiguras.jpg', null, 'fURiCIat', to_date('15/10/2021','DD/MM/YYYY'));
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (9, 'hombreenfiguras.jpg', null, 'HenaTeRg', to_date('16/10/2021','DD/MM/YYYY'));
+INSERT INTO Compra(ID, Miniaturas, Precio, NombreUsuarioComprador, PeriodoFechas) VALUES (10, 'hombreenfiguras.jpg', null, 'fURiCIat', to_date('17/10/2021','DD/MM/YYYY'));
+
+
 INSERT INTO TiposDeTarjeta(Tipo) VALUES ('Visa');
 INSERT INTO TiposDeTarjeta(Tipo) VALUES ('Master Card');
 INSERT INTO TiposDeTarjeta(Tipo) VALUES ('American Express');
@@ -417,16 +427,111 @@ INSERT INTO PagoPorCompra(TipoDePagoID, CompraID, CompraNombreUsuarioComprador) 
 INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (1, 1, 'OmunIaLS', null);
 INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (2, 2, 'HenaTeRg', null);
 INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (3, 3, 'fURiCIat', null);
+INSERT INTO ImpuestosAplicados( ImpuestoID, CompraID, CompraNombreUsuarioComprador, Impuestos) VALUES (2, 7, 'ApenHaNT', null);
+
+
 
 
 
 INSERT INTO DescuentosAplicados(Descuentos, DescuentoID, CompraID, CompraNombreUsuarioComprador) VALUES (null, 2, 2, 'HenaTeRg');
+INSERT INTO DescuentosAplicados(Descuentos, DescuentoID, CompraID, CompraNombreUsuarioComprador) VALUES (null, 1, 6, 'HenaTeRg');
+INSERT INTO DescuentosAplicados(Descuentos, DescuentoID, CompraID, CompraNombreUsuarioComprador) VALUES (null, 3, 8, 'fURiCIat');
+
 
 INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (1, 'OmunIaLS', 1, 1, 1, null);
-INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (2, 'HenaTeRg', 2, 6, 4, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (2, 'HenaTeRg', 2, 2, 4, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (3, 'fURiCIat', 3, 3, 1, null);
+
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (4, 'ApenHaNT', 4, 5, 1, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (2, 'HenaTeRg', 5, 5, 1, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (6, 'fURiCIat', 6, 5, 1, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (7, 'ApenHaNT', 7, 5, 1, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (8, 'fURiCIat', 8, 5, 1, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (9, 'HenaTeRg', 9, 5, 1, null);
+INSERT INTO FotosPorCompra(CompraID, NombreUsuarioComprador, NumeroCompra, FotoID, Cantidad, Precio) VALUES (10, 'fURiCIat', 10,5, 1, null);
+
+
+
+
+
 INSERT INTO HistorialVisitas(NumerodeRegistro, CompradorNombreUsuario, PeriodoFechas) VALUES (1, 'OmunIaLS', to_date('11/10/2021','DD/MM/YYYY'));
 INSERT INTO HistorialVisitas(NumerodeRegistro, CompradorNombreUsuario, PeriodoFechas) VALUES (2, 'HenaTeRg', to_date('12/10/2021','DD/MM/YYYY'));
 INSERT INTO HistorialVisitas(NumerodeRegistro, CompradorNombreUsuario, PeriodoFechas) VALUES (3, 'fURiCIat', to_date('12/10/2021','DD/MM/YYYY'));
 INSERT INTO HistorialVisitas(NumerodeRegistro, CompradorNombreUsuario, PeriodoFechas) VALUES (4, 'OmunIaLS', to_date('13/10/2021','DD/MM/YYYY'));
+
+
+--CONSULTAS
+/*
+1. Liste el nombre de las fotos que han sido compradas en todos los periodos registrados en
+el sistema.
+*/
+
+/*Vista que cuenta la cantidad de distintos periodos*/
+create or replace view v_cantidadPeriodos(cantidad) as
+(
+    select distinct count(fechas)
+    from periodo
+);
+
+/*Vista que cuenta en cuantas fechas ha sido vendida una foto*/
+create or replace view v_cantidadFotoFecha(cantidad, nombre) as(
+    select distinct count (c.periodofechas), f.nombrearchivo from foto f
+    inner join fotosporcompra fc on (f.id = fc.fotoid)
+    inner join compra c on (fc.compraid = c.id)
+    group by f.nombrearchivo
+);
+
+select v2.cantidad, v2.nombre from v_cantidadPeriodos v1 
+inner join v_cantidadFotoFecha v2 on (v2.cantidad = v1.cantidad);
+
+/*
+2.Liste fecha de la compra, el nombre del cliente, total de la compra (sumatoria del valor
+unitario de cada foto de la orden), total de descuentos (sumatoria de todos los descuentos
+aplicados a la compra), total de impuestos (sumatoria de todos los impuestos aplicados a
+cada compra) y total a pagar (suma el total restándole los descuentos y sumándole los
+impuestos). La última fila debe llevar la suma de todas las columnas.
+*/
+
+/*Vista que calcula el total de una compra sin descuentos ni impuestos*/
+create or replace view v_calcularTotalBruto(compraid, total) as (
+select c.id, sum(f.precio) from compra c
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+group by c.id
+);
+/*Vista que calcula los descuentos aplicados a una compra*/
+create or replace view v_calcularDescuentos(compraid, descuentos) as(
+select c.id, sum(f.precio * (d.porcentaje/100)) from descuentosaplicados da
+inner join compra c on(c.id = da.compraid)
+inner join descuento d on (d.id = da.descuentoid)
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+group by c.id
+);
+
+/*Vista que calcula los impuestos aplicados a una compra*/
+create or replace view v_calcularImpuestos(compraid, impuestos) as(
+select c.id, sum(f.precio * (i.porcentaje/100)) from impuestosaplicados ia
+inner join compra c on(c.id = ia.compraid)
+inner join impuesto i on (i.id = ia.impuestoid)
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+group by c.id
+);
+
+select c.id, c.periodofechas, u.nombre, u.apellido, v1.total Total,
+    nvl(v2.descuentos,0) Descuentos,
+    nvl(v3.impuestos,0) Impuestos,
+    nvl(Total -nvl(v2.descuentos,0) +  nvl(v3.impuestos,0),0) TotalPago
+from compra c 
+inner join usuario u on (c.nombreusuariocomprador = u.nombreusuario)
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+left join v_calcularTotalBruto v1 on (c.id = v1.compraid)
+left join v_calcularDescuentos v2 on(c.id = v2.compraid)
+left join v_calcularImpuestos v3 on(c.id = v3.compraid)
+group by c.id, c.periodofechas, u.nombre, u.apellido, v1.total, v2.descuentos, v3.impuestos,0
+order by c.id;
+
 
 
