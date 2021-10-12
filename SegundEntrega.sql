@@ -2,7 +2,7 @@
 Segunda Entrega: Bases de datos
 Grupo: 4
 Nombres: David Palacios, Sebastian Vergara, Nicolas Sanchez, Maria Camila Paternina, Paula Penuela
-Cuentas: is562815, is562814,is562812,is562806,is562810
+Cuenta: is562815
 */
 
 DROP TABLE Ciudad CASCADE CONSTRAINTS;
@@ -532,6 +532,49 @@ left join v_calcularDescuentos v2 on(c.id = v2.compraid)
 left join v_calcularImpuestos v3 on(c.id = v3.compraid)
 group by c.id, c.periodofechas, u.nombre, u.apellido, v1.total, v2.descuentos, v3.impuestos,0
 order by c.id;
+
+/*
+3. Reporte de ventas por país. Se debe listar el nombre del país, la fecha y el total a pagar
+(suma el total restándole los descuentos y sumándole los impuestos). Los países que no
+tengan ventas en las distintas fechas deben aparecer en 0. La última fila debe llevar la
+suma de todas las columnas.
+*/
+
+/*Vista que calcula el total de las compras sin descuentos ni impuestos por pais*/
+create or replace view v_calcularTotalBrutoPais(paisid,pais, total) as (
+select p.codigo,p.nombre, sum(f.precio) from compra c
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+right join pais p on (p.codigo = f.ubicacionpaiscodigo)
+group by p.codigo, p.nombre
+);
+
+/*Vista que calcula los descuentos aplicados a una compra por Pais*/
+create or replace view v_calcularDescuentosPais(paisid, pais, descuentos) as(
+select p.codigo, p.nombre, sum(f.precio * (d.porcentaje/100)) from descuentosaplicados da
+inner join compra c on(c.id = da.compraid)
+inner join descuento d on (d.id = da.descuentoid)
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+right join pais p on (p.codigo = f.ubicacionpaiscodigo)
+group by p.codigo, p.nombre
+);
+
+/*Vista que calcula los impuestos aplicados a una compra*/
+create or replace view v_calcularImpuestosPais(paisid,pais,impuestos) as(
+select p.codigo, p.nombre, sum(f.precio * (i.porcentaje/100)) from impuestosaplicados ia
+inner join compra c on(c.id = ia.compraid)
+inner join impuesto i on (i.id = ia.impuestoid)
+inner join fotosporcompra fc on (c.id = fc.compraid)
+inner join foto f on (f.id = fc.fotoid)
+right join pais p on (p.codigo = f.ubicacionpaiscodigo)
+group by p.codigo, p.nombre,c.periodofechas
+);
+select v1.pais, v1.fecha, (v1.total-v2.descuentos+ v3.impuestos)
+from v_calcularTotalBrutoPais v1
+inner join v_calcularDescuentosPais v2 on(v1.paisid = v2.paisid)
+inner join v_calcularImpuestosPais v3 on(v1.paisid = v3.paisid)
+group by v1.pais, v1.fecha, (v1.total-v2.descuentos+ v3.impuestos);
 
 
 
